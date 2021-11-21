@@ -1,5 +1,3 @@
-const assertEqual = require("./assertEqual");
-
 const eqArrays = (arr1, arr2) => {
   if (arr1.length !== arr2.length) return false;
   let isEqual = true;
@@ -9,12 +7,12 @@ const eqArrays = (arr1, arr2) => {
       isEqual = false;
     }
   });
-  return isEqual;
-};
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertEqual(eqArrays([1, 2, 3], [1, 2, "3"]), false);
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3, 4]), false);
-assertEqual(eqArrays(["a", "b", "c"], ["a", "b", "c"]), true);
+  if (isEqual) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 module.exports = eqArrays;
