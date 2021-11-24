@@ -12,11 +12,11 @@ This project was created and published by me as part of my learnings at Lighthou
 
 **Install it:**
 
-`npm install andymo/lotide`
+`npm install @andymo/lotide`
 
 **Require it:**
 
-`const _ = require('andymo/lotide');`
+`const _ = require('@andymo/lotide');`
 
 **Call it:**
 

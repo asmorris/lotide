@@ -1,5 +1,6 @@
 {
-  "name": "lotide",
+  "name": "@andymo/lotide",
+  "author": "Andrew Morrison",
   "version": "1.0.0",
   "description": "A (somewhat) clone of Lodash for learning functionality",
   "main": "assertArraysEqual.js",
@@ -13,7 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/asmorris/lotide.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/asmorris/lotide/issues"
