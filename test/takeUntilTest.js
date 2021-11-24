@@ -1,22 +1,30 @@
-import takeUntil from "../takeUntil";
-import assertArraysEqual from "../assertArraysEqual";
+const assert = require("chai").assert;
+const takeUntil = require("../takeUntil");
 
-const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
-const data1Clipped = [1, 2, 5, 7, 2];
-const results1 = takeUntil(data1, (x) => x < 0);
-assertArraysEqual(data1Clipped, results1);
+describe("#takeUntil", () => {
+  it("takes values up until a certain numerical value", () => {
+    const data = [1, 2, 5, 7, 2, -1, 2, 4, 5];
+    assert.deepEqual(
+      takeUntil(data, (x) => x < 0),
+      [1, 2, 5, 7, 2]
+    );
+  });
 
-const data2 = [
-  "I've",
-  "been",
-  "to",
-  "Hollywood",
-  ",",
-  "I've",
-  "been",
-  "to",
-  "Redwood",
-];
-const data2Clipped = ["I've", "been", "to", "Hollywood"];
-const results2 = takeUntil(data2, (x) => x === ",");
-assertArraysEqual(data2Clipped, results2);
+  it("takes values up until a certain string value", () => {
+    const data = [
+      "I've",
+      "been",
+      "to",
+      "Hollywood",
+      ",",
+      "I've",
+      "been",
+      "to",
+      "Redwood",
+    ];
+    assert.deepEqual(
+      takeUntil(data, (x) => x === ","),
+      ["I've", "been", "to", "Hollywood"]
+    );
+  });
+});

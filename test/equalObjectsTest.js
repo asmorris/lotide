@@ -1,22 +1,31 @@
-import assertEqual from "../assertEqual";
-import eqObjects from "../eqObjects";
+const assert = require("chai").assert;
+const eqObjects = require("../eqObjects");
 
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true);
+describe("#eqObjects", () => {
+  it("returns true if objects equal", () => {
+    const ab = { a: "1", b: "2" };
+    const ba = { b: "2", a: "1" };
 
-const abc = { a: "1", b: "2", c: "3" };
+    assert.equal(eqObjects(ab, ba), true);
+  });
+  it("returns true if objects equal but key value pair different order", () => {
+    const cd = { c: "1", d: ["2", 3] };
+    const dc = { d: ["2", 3], c: "1" };
 
-assertEqual(eqObjects(ab, abc), false);
+    assert.equal(eqObjects(cd, dc), true);
+  });
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
+  it("returns false if one object has too many k/v pairs", () => {
+    const ab = { a: "1", b: "2" };
+    const abc = { a: "1", b: "2", c: "3" };
 
-assertEqual(eqObjects(cd, dc), true);
+    assert.equal(eqObjects(ab, abc), false);
+  });
 
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false);
+  it("returns false if objects are not deeply equal to each other", () => {
+    const cd = { c: "1", d: ["2", 3] };
+    const cd2 = { c: "1", d: ["2", 3, 4] };
 
-const ef = { c: "1", d: ["2", 3], e: "hello" };
-const fe = { d: ["2", 3], c: "1", e: "hello" };
-assertEqual(eqObjects(ef, fe), true);
+    assert.equal(eqObjects(cd, cd2), false);
+  });
+});

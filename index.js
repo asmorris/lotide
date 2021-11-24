@@ -1,6 +1,3 @@
-const assertArraysEqual = require("./assertArraysEqual");
-const assertEqual = require("./assertEqual");
-const assertObjectsEqual = require("./assertObjectsEqual");
 const countOnly = require("./countOnly");
 const eqArrays = require("./eqArrays");
 const eqObjects = require("./eqObjects");
@@ -13,9 +10,6 @@ const takeUntil = require("./takeUntil");
 const without = require("./without");
 
 module.exports = {
-  assertArraysEqual,
-  assertEqual,
-  assertObjectsEqual,
   countOnly,
   eqArrays,
   eqObjects,
